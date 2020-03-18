@@ -1,5 +1,5 @@
 let techs = []
 
-techs.push('Vue')
+techs.push({ vue: '2.0' })
 
 browser.runtime.sendMessage(techs)
