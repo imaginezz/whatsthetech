@@ -85,7 +85,7 @@ function detectApps() {
 
       r = meta_tests[name][t].exec(m.content)
       if (r) {
-        _apps[t] = r[1] ? r[1] : -1
+        _apps[t] = r[1] ? r[1] : null
       }
     }
   }
@@ -161,7 +161,7 @@ function detectApps() {
     for (let t in script_tests) {
       if (t in _apps) continue
       if (script_tests[t].test(s)) {
-        _apps[t] = -1
+        _apps[t] = null
       }
     }
   }
@@ -206,7 +206,7 @@ function detectApps() {
   for (let t in text_tests) {
     if (t in _apps) continue
     if (text_tests[t].test(text)) {
-      _apps[t] = -1
+      _apps[t] = null
     }
   }
 
@@ -511,7 +511,7 @@ function detectApps() {
   for (let t in js_tests) {
     if (t in _apps) continue
     if (js_tests[t]()) {
-      _apps[t] = -1
+      _apps[t] = null
     }
   }
 
@@ -642,9 +642,9 @@ function detectApps() {
   }
 
   for (let a in _apps) {
-    if (_apps[a] === -1 && js_versions[a]) {
+    if (_apps[a] === null && js_versions[a]) {
       r = js_versions[a]()
-      _apps[a] = r ? r : -1
+      _apps[a] = r ? r : null
     }
   }
 
@@ -690,7 +690,7 @@ function detectApps() {
     }
 
     if (found === true) {
-      _apps[t] = -1
+      _apps[t] = null
     }
   }
 
@@ -706,7 +706,7 @@ function detectApps() {
     for (let app in cssLinkName) {
       if (app in _apps) continue
       if (cssLinkName[app].test(cssLinks[i].href)) {
-        _apps[app] = -1
+        _apps[app] = null
       }
     }
   }
