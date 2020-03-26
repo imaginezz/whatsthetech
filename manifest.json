@@ -16,7 +16,8 @@
       ],
       "js": [
         "content/main.js"
-      ]
+      ],
+      "run_at": "document_idle"
     }
   ],
   "background": {
