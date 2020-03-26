@@ -1,18 +1,35 @@
-import knownHeaders from './header.js'
+import knownHeaders from '../resources/headers.js'
+import knownTechs from '../resources/techs.js'
+
+window.knownTechs = knownTechs
 
 let techData = {}
 
-browser.runtime.onMessage.addListener((message, sender) => {
-  //   console.log(message, sender)
+console.log('background started')
 
-  const tabId = sender.tab.id
-  const apps = message
+browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(message, sender)
 
-  techData[tabId] = techData[tabId] || {}
-
-  techData[tabId]['app'] = apps
-
-  //   console.log(techData)
+  const msgType = message['type']
+  const msgContent = message['content']
+  let tabId
+  switch (msgType) {
+    case 'setApps':
+      const apps = message['content']
+      tabId = sender.tab.id
+      techData[tabId] = techData[tabId] || {}
+      techData[tabId]['app'] = apps
+      break
+    case 'getTechs':
+      tabId = msgContent['tabId']
+      console.log(techData)
+      if (tabId in techData) {
+        sendResponse(techData[tabId])
+      } else {
+        sendResponse(null)
+      }
+      break
+  }
 })
 
 browser.tabs.onRemoved.addListener(tabId => {

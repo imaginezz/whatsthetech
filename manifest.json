@@ -3,6 +3,7 @@
   "name": "WhatsTheTech",
   "version": "0.1",
   "description": "Get the technologys the website use",
+  "homepage_url": "https://github.com/imaginezz/whatsthetech",
   "icons": {
     "48": "icons/logo.svg",
     "96": "icons/logo.svg"
@@ -19,14 +20,11 @@
     }
   ],
   "background": {
-    // "scripts": [
-    //   "background/headers.js",
-    //   "background/main.js"
-    // ]
-    "page":"background/index.html"
+    "page": "background/index.html"
   },
   "browser_action": {
     "default_icon": "icons/logo.svg",
+    "default_title": "What's the Tech?",
     "default_popup": "popup/index.html"
   },
   "permissions": [

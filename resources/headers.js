@@ -16,8 +16,7 @@ const knownHeaders = {
     nginx: /nginx\/?(.*)/,
     IIS: /Microsoft-IIS\/?(.*)/,
     AliyunOSS: /AliyunOSS\/?(.*)/,
-    cloudflare: /cloudflare\/?(.*)/,
-    BWS: /BWS\/?(.*)/
+    cloudflare: /cloudflare\/?(.*)/
   },
   via: {
     Varnish: /(.*) varnish/
