@@ -590,11 +590,11 @@ function detectApps() {
     },
     Angular: function() {
       if (window.ng && window.document.body && window.document.body.children.length > 0) {
-        var children = new Array(window.document.body.children[0])
-        var rootCmp = children.find(function(e) {
+        const children = new Array(window.document.body.children[0])
+        const rootCmp = children.find(function(e) {
           return e.attributes && 'ng-version' in e.attributes
         })
-        return rootCmp.attributes['ng-version'].nodeValue
+        if (rootCmp) return rootCmp.attributes['ng-version'].nodeValue
       }
     },
     Ionic: function() {
