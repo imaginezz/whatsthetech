@@ -1,9 +1,10 @@
 /**
- * Chrome AppSniffer
+ * What's the Tech?
  *
  * Detect apps run on current page and send back to background page.
- * Some part of this script was refered from Wappalyzer Firefox Addon.
+ * Most part of this script was refered from Wappalyzer Firefox Addon and ChromeSnifferPlus Chrome Addon.
  *
+ * @author imaginezz <imaginezz@outlook.com>
  * @author Bao Nguyen <contact@nqbao.com>
  * @author justjavac <justjavac@gmail.com>
  * @license GPLv3

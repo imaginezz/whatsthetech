@@ -2,11 +2,12 @@
   "manifest_version": 2,
   "name": "WhatsTheTech",
   "version": "0.1",
-  "description": "Get the technologys the website use",
+  "description": "Get the technology the website use",
   "homepage_url": "https://github.com/imaginezz/whatsthetech",
   "icons": {
-    "48": "icons/logo.svg",
-    "96": "icons/logo.svg"
+    "16": "icons/logo16.png",
+    "48": "icons/logo48.png",
+    "128": "icons/logo128.png"
   },
   "content_scripts": [
     {
@@ -15,6 +16,7 @@
         "https://*/*"
       ],
       "js": [
+        "lib/browser-polyfill.min.js",
         "content/main.js"
       ],
       "run_at": "document_idle"
@@ -24,13 +26,19 @@
     "page": "background/index.html"
   },
   "browser_action": {
-    "default_icon": "icons/logo.svg",
+    "default_icon": "icons/logo128.png",
     "default_title": "What's the Tech?",
     "default_popup": "popup/index.html"
+  },
+  "options_ui": {
+    "page": "options/index.html"
   },
   "permissions": [
     "http://*/*",
     "https://*/*",
     "webRequest"
+  ],
+  "web_accessible_resources": [
+    "content/detect.js"
   ]
 }

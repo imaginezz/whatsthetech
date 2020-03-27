@@ -1,0 +1,21 @@
+#header {
+    width: 100%;
+    padding: 10px;
+}
+
+#header img {
+    float: left;
+    width: 40px;
+    height: 40px;
+}
+
+#header #title {
+    padding-left: 50px;
+    font-size: 20px;
+    line-height: 40px;
+}
+
+#content{
+    font-size: 14px;
+    margin:0 10px;
+}

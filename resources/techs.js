@@ -1,8 +1,9 @@
 /**
- * Chrome AppSniffer
+ * What's the Tech?
  *
- * Web Application definition
+ * Web Application definition, most part of this script was refered from ChromeSnifferPlus Chrome Addon.
  *
+ * @author imaginezz <imaginezz@outlook.com>
  * @author justjavac <justjavac@gmail.com>
  * @license GPLv3
  **/

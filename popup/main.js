@@ -1,5 +1,10 @@
 const knownTechs = browser.extension.getBackgroundPage().knownTechs
 
+const deleteInit = function() {
+  const initTech = document.querySelector('#init-item')
+  initTech.parentNode.removeChild(initTech)
+}
+
 const noTech = function() {
   const techList = document.querySelector('#list')
 

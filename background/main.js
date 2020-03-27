@@ -5,11 +5,7 @@ window.knownTechs = knownTechs
 
 let techData = {}
 
-console.log('background started')
-
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(message, sender)
-
   const msgType = message['type']
   const msgContent = message['content']
   let tabId
@@ -22,13 +18,11 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
       break
     case 'getTechs':
       tabId = msgContent['tabId']
-      console.log(techData)
       if (tabId in techData) {
-        sendResponse(techData[tabId])
+        return Promise.resolve(techData[tabId])
       } else {
-        sendResponse(null)
+        return Promise.resolve(null)
       }
-      break
   }
 })
 
@@ -40,8 +34,6 @@ browser.tabs.onRemoved.addListener(tabId => {
 
 browser.webRequest.onHeadersReceived.addListener(
   detail => {
-    // console.log(detail)
-
     const headers = detail.responseHeaders
     const tabId = detail.tabId
 
@@ -56,7 +48,7 @@ browser.webRequest.onHeadersReceived.addListener(
         for (let kHdr in kHdrs) {
           const match = hdrContent.match(kHdrs[kHdr])
           if (match) {
-            const version = match[1] || -1
+            const version = match[1] || null
             foundHdrs[kHdr] = version
           }
         }
@@ -65,8 +57,6 @@ browser.webRequest.onHeadersReceived.addListener(
 
     techData[tabId] = techData[tabId] || {}
     techData[tabId]['header'] = foundHdrs
-
-    // console.log(techData)
   },
   {
     urls: ['<all_urls>'],
