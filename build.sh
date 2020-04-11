@@ -1,1 +1,1 @@
-web-ext build --overwrite-dest
+web-ext build --source-dir ./src --overwrite-dest

@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "WhatsTheTech",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Get the technology the website use",
   "homepage_url": "https://github.com/imaginezz/whatsthetech",
   "icons": {
