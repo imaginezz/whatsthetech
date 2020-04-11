@@ -766,7 +766,7 @@ const knownTechs = {
     url: 'https://github.com/Polymer/polymer'
   },
   Vue: {
-    icon: 'Vue.png',
+    icon: 'vue.png',
     url: 'http://vuejs.org/'
   },
   RxJs: {
